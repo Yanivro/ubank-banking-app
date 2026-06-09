@@ -15,7 +15,7 @@
 <!-- geometric display + grotesque body — a real banking typeface, not the system font -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
   :root{
@@ -40,6 +40,7 @@
     --radius:20px;
     --font:'IBM Plex Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;
     --display:'Space Grotesk','IBM Plex Sans',system-ui,sans-serif;
+    --balance-font:'Hanken Grotesk','IBM Plex Sans',system-ui,sans-serif;
     --mono:'IBM Plex Mono',ui-monospace,'SF Mono',Menlo,monospace;
   }
   /* ---------- dark mode ---------- */
@@ -136,10 +137,10 @@
   .hero{padding:10px 22px 0;}
   .balrow{display:flex;align-items:baseline;gap:11px;}
   .balance{
-    font-family:var(--display);font-weight:700;letter-spacing:-0.02em;
-    font-size:44px;line-height:1;font-variant-numeric:tabular-nums;color:var(--balance);
+    font-family:var(--balance-font);font-weight:700;letter-spacing:-0.01em;
+    font-size:27px;line-height:1;font-variant-numeric:tabular-nums;color:var(--balance);
   }
-  .balance .cur{font-size:24px;vertical-align:3px;margin-right:3px;opacity:.45;font-weight:600;}
+  .balance .cur{font-size:24px;vertical-align:0;margin-right:5px;opacity:1;font-weight:600;}
   .ballbl{font-size:13px;color:var(--muted);font-weight:600;}
   .delta{
     display:inline-flex;align-items:center;gap:6px;margin-top:12px;
