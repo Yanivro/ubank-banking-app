@@ -1205,7 +1205,7 @@ const BENDIGO_TX = [
    They share one render pipeline; switching rebinds the mutable derived state. */
 const ACCOUNTS = {
   ubank:   { id:'ubank',   bank:'ubank',        label:'ubank',   sub:'Save account',      bsb:'670-864', acct:'4827 0153',  tx:UBANK_TX, boost:3000000 },
-  bendigo: { id:'bendigo', bank:'Bendigo Bank', label:'Bendigo', sub:'Ultimate Account',  bsb:'633-000', acct:'1195 04835', tx:BENDIGO_TX },
+  bendigo: { id:'bendigo', bank:'Bendigo Bank', label:'Bendigo', sub:'Ultimate Account',  bsb:'633-000', acct:'1195 04835', tx:BENDIGO_TX, boost:10000 },
 };
 let activeAcct = 'ubank';   /* resolved from storage at boot, once `store` exists */
 
