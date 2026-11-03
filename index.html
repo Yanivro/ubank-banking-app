@@ -16,6 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
 <style>
   :root{
@@ -1736,10 +1737,16 @@ function exportStatement(days){
     <div class="ps-foot">
       Generated from the ubank app for personal reference. Amounts shown in ${CURRENCY}; balances are held in AUD and converted at the rates set in the app. Not an official bank document.
     </div>`;
-  const prevTitle=document.title;
-  document.title=`${activeAcct}-statement-${CURRENCY}-${ymd(w.start)}_to_${ymd(lastDate)}`;
-  window.print();
-  setTimeout(()=>{ document.title=prevTitle; }, 800);
+  const filename=`${activeAcct}-statement-${CURRENCY}-${ymd(w.start)}_to_${ymd(lastDate)}.pdf`;
+  const element = document.getElementById('printRoot');
+  const opt = {
+    margin: 10,
+    filename: filename,
+    image: { type: 'jpeg', quality: 0.98 },
+    html2canvas: { scale: 2 },
+    jsPDF: { orientation: 'portrait', unit: 'mm', format: 'a4' }
+  };
+  html2pdf().set(opt).from(element).save();
 }
 
 /* statement period */
