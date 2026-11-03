@@ -1740,15 +1740,18 @@ function exportStatement(days){
   const filename=`${activeAcct}-statement-${CURRENCY}-${ymd(w.start)}_to_${ymd(lastDate)}.pdf`;
   const element = document.getElementById('printRoot');
   setTimeout(()=>{
+    element.style.display='block';
     const opt = {
       margin: 10,
       filename: filename,
       image: { type: 'jpeg', quality: 0.98 },
-      html2canvas: { scale: 2, logging: false },
+      html2canvas: { scale: 2, logging: false, backgroundColor: '#fff' },
       jsPDF: { orientation: 'portrait', unit: 'mm', format: 'a4' }
     };
-    html2pdf().set(opt).from(element).save();
-  }, 100);
+    html2pdf().set(opt).from(element).save().then(()=>{
+      element.style.display='none';
+    });
+  }, 150);
 }
 
 /* statement period */
